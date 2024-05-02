@@ -5,7 +5,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // **para obtener el tamaño de la pantalla
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
