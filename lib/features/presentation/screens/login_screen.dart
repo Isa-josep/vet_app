@@ -13,7 +13,8 @@ class LoginScreen extends StatelessWidget {
         title: const Text('Login'),
       ),
       body: Center(
-        child: SizedBox(
+        child: Container(
+          color: const Color.fromARGB(227, 241, 241, 241),
           height: size.height,
           width: size.width,
           child: Stack(
@@ -32,10 +33,20 @@ class LoginScreen extends StatelessWidget {
                   margin: EdgeInsets.only(right: size.width*.05, bottom: size.height*.05),
                   height: size.height*.4,
                   width: size.width*.9,
+                  
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 1.5),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: const Color.fromARGB(255, 246, 47, 47).withOpacity(0.5)),
-                    color: Colors.white.withOpacity(0.5),
+                   
+                    color: const Color(0xFFFFFFFF).withOpacity(.6),
+                    // boxShadow:   const [
+                    //   BoxShadow(
+                    //     color: Colors.black26,
+                    //     spreadRadius: 0,
+                    //     blurRadius: 5,
+                    //     offset: Offset(0, 10),
+                    //   ),
+                    // ]
                   ),
                     child: Column(
                       children: [
