@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:vetapp/features/presentation/screens/homepage.dart';
 import 'package:vetapp/features/presentation/screens/initial_screen.dart';
+import 'package:vetapp/features/presentation/screens/profilepet.dart';
 
 class VeterinarioPage extends StatefulWidget {
   const VeterinarioPage({super.key});
@@ -17,7 +18,7 @@ class _VeterinarioPageState extends State<VeterinarioPage> {
     const Center(child: HomePage()),
     Center(child: InitialScreen()),
     Center(child: HomePage()),
-    const Center(child: InitialScreen()),
+    const Center(child: ProfilePet()),
   ];
 
   @override

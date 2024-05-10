@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:vetapp/features/presentation/screens.dart';
+import 'package:vetapp/features/presentation/screens/profilepet.dart';
 import 'package:vetapp/features/presentation/screens/veterinario-page.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
@@ -14,5 +15,9 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
     path: '/veterhome',
     builder: (context, state) => const VeterinarioPage(),
+  ),
+  GoRoute(
+    path: '/petprofile',
+    builder: (context, state) => const ProfilePet(),
   ),
 ]);
