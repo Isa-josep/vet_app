@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vetapp/features/presentation/widgets.dart';
+import 'package:go_router/go_router.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -24,69 +26,75 @@ class LoginScreen extends StatelessWidget {
                 'assets/Vector.svg',
                 fit: BoxFit.cover,
               ),
-               
-                ClipRRect(
-                  child: BackdropFilter(
+              ClipRRect(
+                child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                   child: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 0),
-                  margin: EdgeInsets.only(right: size.width*.05, bottom: size.height*.05),
-                  height: size.height*.4,
-                  width: size.width*.9,
-                  
-                  decoration: BoxDecoration(
-                    // border: Border.all(color: Colors.black, width: 1.5),
-                    borderRadius: BorderRadius.circular(20),
-                   
-                    color: const Color.fromARGB(255, 229, 219, 243).withOpacity(.7),
-                    // boxShadow:   const [
-                    //   BoxShadow(
-                    //     color: Colors.black26,
-                    //     spreadRadius: 0,
-                    //     blurRadius: 5,
-                    //     offset: Offset(0, 10),
-                    //   ),
-                    // ]
-                  ),
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20, top: 20, bottom: 0),
+                    margin: EdgeInsets.only(
+                        right: size.width * .05, bottom: size.height * .05),
+                    height: size.height * .4,
+                    width: size.width * .9,
+                    decoration: BoxDecoration(
+                      // border: Border.all(color: Colors.black, width: 1.5),
+                      borderRadius: BorderRadius.circular(20),
+
+                      color: const Color.fromARGB(255, 229, 219, 243)
+                          .withOpacity(.7),
+                      // boxShadow:   const [
+                      //   BoxShadow(
+                      //     color: Colors.black26,
+                      //     spreadRadius: 0,
+                      //     blurRadius: 5,
+                      //     offset: Offset(0, 10),
+                      //   ),
+                      // ]
+                    ),
                     child: Column(
                       children: [
-                        const Text("Inicie sesion para continuar", style: TextStyle(color: Colors.black, fontSize: 25, ),),
-                        const CustomTextFormField(
-                          label: 'Correo',
-                          hint: 'Correo',
-                          keyboardType: TextInputType.emailAddress,
-                          // onChanged: (value) => ref.read(loginFormProvider.notifier).onEmailChanged(value),
-                          // validator: (value) => ref.read(loginFormProvider).email.value.fold((l) => l.maybeMap(
-                          //   invalidEmail: (_) => 'Correo invalido',
-                          //   orElse: () => null,
-                          // ), (_) => null)
+                        const Text(
+                          "Inicie sesion para continuar",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25,
+                          ),
                         ),
-                        
-                       const SizedBox(height: 10,),
-                        const CustomTextFormField(
-                          label: 'Contraseña',
-                          hint: 'Contraseña',
-                          obscureText: true,
-                          // onChanged: (value) => ref.read(loginFormProvider.notifier).onPasswordChanged(value),
-                          // validator: (value) => ref.read(loginFormProvider).password.value.fold((l) => l.maybeMap(
-                          //   shortPassword: (_) => 'Contraseña muy corta',
-                          //   orElse: () => null,
-                          // ), (_) => null)
+                        TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Email',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         SizedBox(
-                          width: double.infinity,
-                          height: 50,
-                          child: CustomFilledButton(
-                            text: 'Ingresar',
-                            // textColor: const Color.fromARGB(255, 52, 52, 52),
-                            buttonColor: const Color.fromARGB(255, 114, 60, 252),
-                            onPressed: (){
-                              //ref.read(loginFormProvider.notifier).onFormSubmit();
-                              // context.push('/home_view'); //TODO: Cambiar por la ruta correcta
-                            },
-                          )
-                        ),
+                            width: double.infinity,
+                            height: 50,
+                            child: CustomFilledButton(
+                              text: 'Ingresar',
+                              // textColor: const Color.fromARGB(255, 52, 52, 52),
+                              buttonColor: Color.fromARGB(255, 114, 60, 252),
+                              onPressed: () {
+                                //ref.read(loginFormProvider.notifier).onFormSubmit();
+                                context.push('/veterhome');
+                                //TODO: Cambiar por la ruta correcta
+                              },
+                            )),
                       ],
                     ),
                   ),
