@@ -51,24 +51,27 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const Text("Inicie sesion para continuar", style: TextStyle(color: Colors.black, fontSize: 25, ),),
-                        TextField(
-                          
-                          decoration: InputDecoration(
-                            hintText: 'Email',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
+                        const CustomTextFormField(
+                          label: 'Correo',
+                          hint: 'Correo',
+                          keyboardType: TextInputType.emailAddress,
+                          // onChanged: (value) => ref.read(loginFormProvider.notifier).onEmailChanged(value),
+                          // validator: (value) => ref.read(loginFormProvider).email.value.fold((l) => l.maybeMap(
+                          //   invalidEmail: (_) => 'Correo invalido',
+                          //   orElse: () => null,
+                          // ), (_) => null)
                         ),
+                        
                        const SizedBox(height: 10,),
-                        TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              
-                            ),
-                          ),
+                        const CustomTextFormField(
+                          label: 'Contraseña',
+                          hint: 'Contraseña',
+                          obscureText: true,
+                          // onChanged: (value) => ref.read(loginFormProvider.notifier).onPasswordChanged(value),
+                          // validator: (value) => ref.read(loginFormProvider).password.value.fold((l) => l.maybeMap(
+                          //   shortPassword: (_) => 'Contraseña muy corta',
+                          //   orElse: () => null,
+                          // ), (_) => null)
                         ),
                         const SizedBox(height: 10,),
                         SizedBox(
