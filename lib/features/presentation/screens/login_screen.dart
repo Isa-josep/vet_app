@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                       //   ),
                       // ]
                     ),
-                    child:  Column(
+                    child: Column(
                       children: [
                         const Text(
                           "Inicie sesion para continuar",
@@ -65,17 +65,15 @@ class LoginScreen extends StatelessWidget {
                           hint: 'Correo',
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        
-                         const SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         const CustomTextFormField(
                           label: 'Contraseña',
                           hint: 'Contraseña',
                           obscureText: true,
-                        ),  
-                        
-                         const SizedBox(
+                        ),
+                        const SizedBox(
                           height: 10,
                         ),
                         SizedBox(
@@ -84,10 +82,11 @@ class LoginScreen extends StatelessWidget {
                             child: CustomFilledButton(
                               text: 'Ingresar',
                               // textColor: const Color.fromARGB(255, 52, 52, 52),
-                              buttonColor: const Color.fromARGB(255, 114, 60, 252),
+                              buttonColor:
+                                  const Color.fromARGB(255, 114, 60, 252),
                               onPressed: () {
                                 //ref.read(loginFormProvider.notifier).onFormSubmit();
-                                context.push('/veterhome');
+                                context.push('/veterprofile');
                                 //TODO: Cambiar por la ruta correcta
                               },
                             )),

@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:vetapp/features/presentation/screens/profileveterinario.dart';
+import 'package:vetapp/features/presentation/screens/veterinario-page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -172,59 +175,65 @@ class _HomePageState extends State<HomePage> {
                 ),
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return Card(
-                    color: Color.fromARGB(255, 179, 149, 255),
-                    elevation: 5,
-                    shadowColor: Color.fromARGB(255, 0, 0, 0),
-                    child: ListTile(
-                      title: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.person,
-                            size: 90,
-                            color: Colors.white,
-                          ),
-                          Text('Dr. Veterinario $index',
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  color: Colors.white)),
-                          const Text('Especialidad: Cuidado de mascotas',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  color: Colors.white)),
-                          const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.thumb_up,
-                                  size: 15,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(width: 4),
-                                Text(
-                                  '123',
-                                  style: TextStyle(
-                                      fontSize: 15, color: Colors.white),
-                                ), // Número de likes
-                                SizedBox(width: 8),
-                                Icon(
-                                  Icons.location_on,
-                                  size: 15,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(width: 4),
-                                Text(
-                                  '2 km',
-                                  style: TextStyle(
-                                      fontSize: 15, color: Colors.white),
-                                ), // Distancia
-                              ]),
-                        ],
+                  return GestureDetector(
+                    onTap: () {
+                      // Navigate to another screen and pass the index
+                      context.push('/veterprofile');
+                    },
+                    child: Card(
+                      color: Color.fromARGB(255, 179, 149, 255),
+                      elevation: 5,
+                      shadowColor: Color.fromARGB(255, 0, 0, 0),
+                      child: ListTile(
+                        title: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.person,
+                              size: 90,
+                              color: Colors.white,
+                            ),
+                            Text('Dr. Veterinario $index',
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                    color: Colors.white)),
+                            const Text('Especialidad: Cuidado de mascotas',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                    color: Colors.white)),
+                            const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.thumb_up,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    '123',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.white),
+                                  ), // Número de likes
+                                  SizedBox(width: 8),
+                                  Icon(
+                                    Icons.location_on,
+                                    size: 15,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 4),
+                                  Text(
+                                    '2 km',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.white),
+                                  ), // Distancia
+                                ]),
+                          ],
+                        ),
                       ),
                     ),
                   );
