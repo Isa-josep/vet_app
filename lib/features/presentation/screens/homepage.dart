@@ -177,8 +177,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // Navigate to another screen and pass the index
-                      context.push('/veterprofile');
+                      GoRouter.of(context).go('/veter/$index');
                     },
                     child: Card(
                       color: Color.fromARGB(255, 179, 149, 255),

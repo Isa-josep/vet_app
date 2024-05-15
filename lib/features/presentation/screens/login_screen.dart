@@ -86,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                                   const Color.fromARGB(255, 114, 60, 252),
                               onPressed: () {
                                 //ref.read(loginFormProvider.notifier).onFormSubmit();
-                                context.push('/veterprofile');
+                                context.push('/veterhome');
                                 //TODO: Cambiar por la ruta correcta
                               },
                             )),

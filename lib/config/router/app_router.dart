@@ -22,7 +22,13 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
     builder: (context, state) => const ProfilePet(),
   ),
   GoRoute(
-    path: '/veterprofile',
-    builder: (context, state) => const VeterinarianProfile(),
-  ),
+    path: '/veter/:id',
+    name: VeterinarianProfile.name,
+    builder: (context, state) {
+      final index = int.parse(state.pathParameters['id'] ?? '0');
+      return VeterinarianProfile(
+        pagina: index,
+      );
+    },
+  )
 ]);
