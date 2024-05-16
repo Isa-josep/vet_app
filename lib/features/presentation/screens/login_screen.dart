@@ -87,7 +87,6 @@ class LoginScreen extends StatelessWidget {
                               onPressed: () {
                                 //ref.read(loginFormProvider.notifier).onFormSubmit();
                                 context.push('/veterhome');
-                                //TODO: Cambiar por la ruta correcta
                               },
                             )),
                       ],

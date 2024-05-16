@@ -1,10 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:vetapp/features/datosdoc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:go_router/go_router.dart';
+import 'package:vetapp/features/presentation/screens/profilepet.dart';
 
 class VeterinarianProfile extends StatefulWidget {
   final int pagina;
@@ -29,7 +29,7 @@ class _VeterinarianProfileState extends State<VeterinarianProfile> {
   List<Widget> _buildScreens() {
     return [
       Center(child: Profile(index: widget.pagina)),
-      Center(child: Llamada()),
+      const Center(child: Llamada()),
     ];
   }
 
@@ -38,9 +38,9 @@ class _VeterinarianProfileState extends State<VeterinarianProfile> {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           height: MediaQuery.of(context).size.height * 0.07,
-          backgroundColor: Color.fromARGB(0, 114, 60, 252),
-          buttonBackgroundColor: Color.fromARGB(255, 114, 60, 252),
-          color: Color.fromARGB(255, 114, 60, 252),
+          backgroundColor: const Color.fromARGB(0, 114, 60, 252),
+          buttonBackgroundColor: const Color.fromARGB(255, 114, 60, 252),
+          color: const Color.fromARGB(255, 114, 60, 252),
           animationDuration: const Duration(milliseconds: 300),
           items: const <Widget>[
             Icon(Icons.home, size: 26, color: Colors.white),
@@ -68,60 +68,6 @@ class _VeterinarianProfileState extends State<VeterinarianProfile> {
               )),
         ]));
   }
-}
-
-class Doctor {
-  final String nombre;
-  final String especialidad;
-  final String especialidad2;
-  final String especialidad3;
-  final String fotoUrl;
-  // Agrega otras propiedades relevantes
-
-  Doctor({
-    required this.nombre,
-    required this.especialidad,
-    required this.especialidad2,
-    required this.especialidad3,
-    required this.fotoUrl,
-  });
-}
-
-final List<Doctor> doctores = [
-  Doctor(
-      nombre: 'Dr. Juan Pérez',
-      especialidad: 'Cardiólogo',
-      especialidad2: 'Cardiólogo',
-      especialidad3: 'Cardiólogo',
-      fotoUrl: 'assets/doc.webp'),
-  Doctor(
-      nombre: 'Dra. Ana Domínguez',
-      especialidad: 'Dermatóloga',
-      especialidad2: 'Dermatóloga',
-      especialidad3: 'Dermatóloga',
-      fotoUrl: 'assets/docprueba.png'),
-  Doctor(
-      nombre: 'Dr. Pedro González',
-      especialidad: 'Neurólogo',
-      especialidad2: 'Neurólogo',
-      especialidad3: 'Neurólogo',
-      fotoUrl: 'assets/doc.webp'),
-  Doctor(
-      nombre: 'Dra. María López',
-      especialidad: 'Pediatra',
-      especialidad2: 'Pediatra',
-      especialidad3: 'Pediatra',
-      fotoUrl: 'assets/docprueba.png'),
-  Doctor(
-      nombre: 'Dr. David Hernández',
-      especialidad: 'Psiquiatra',
-      especialidad2: 'Psiquiatra',
-      especialidad3: 'Psiquiatra',
-      fotoUrl: 'assets/doc.webp'),
-];
-
-Doctor getDoctor(int index) {
-  return doctores[index];
 }
 
 class Profile extends StatefulWidget {
@@ -194,7 +140,7 @@ class _ProfileState extends State<Profile> {
                   height: 10,
                 ),
                 //Row de Datos de la mascota
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * .8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -203,10 +149,10 @@ class _ProfileState extends State<Profile> {
                         height: MediaQuery.of(context).size.height * .03,
                         width: MediaQuery.of(context).size.width * .20,
                         decoration: BoxDecoration(
-                          color: Color(0xFFDDC2FF),
+                          color: const Color(0xFFDDC2FF),
                           borderRadius: BorderRadius.circular(50),
-                          border:
-                              Border.all(color: Color(0xFFDDC2FF), width: 1),
+                          border: Border.all(
+                              color: const Color(0xFFDDC2FF), width: 1),
                         ),
                         child: Column(
                           //Edad
@@ -249,8 +195,8 @@ class _ProfileState extends State<Profile> {
                         decoration: BoxDecoration(
                           color: const Color(0xFFDDC2FF),
                           borderRadius: BorderRadius.circular(50),
-                          border:
-                              Border.all(color: Color(0xFFDDC2FF), width: 1),
+                          border: Border.all(
+                              color: const Color(0xFFDDC2FF), width: 1),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -270,32 +216,34 @@ class _ProfileState extends State<Profile> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Align(
-                  alignment: Alignment(-.7, 1),
-                  child: Text(
-                    "Informacion adicional",
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Color.fromARGB(255, 48, 48, 48),
-                      decoration: TextDecoration.none,
+                Align(
+                  alignment: const Alignment(-.2, 1),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * .8,
+                    child: const Text(
+                      "Informacion del veterinario",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color.fromARGB(255, 48, 48, 48),
+                        decoration: TextDecoration.none,
+                      ),
                     ),
                   ),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width * .8,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromARGB(255, 215, 215, 215),
-                        spreadRadius: 0,
-                        blurRadius: 0,
-                        offset: Offset(0, 2),
+                const Separador(),
+                Align(
+                  alignment: const Alignment(-.2, 1),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * .8,
+                    child: Text(
+                      doctor.description,
+                      style: const TextStyle(
+                        fontSize: 17,
+                        color: Color.fromARGB(241, 130, 130, 130),
+                        decoration: TextDecoration.none,
                       ),
-                    ],
-                    borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
-                  child: const Column(),
                 ),
               ],
             )),

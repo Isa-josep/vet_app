@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -22,7 +21,7 @@ class _ProfilePetState extends State<ProfilePet> {
           width: MediaQuery.of(context).size.width * 1,
           height: MediaQuery.of(context).size.height * 1,
           decoration: BoxDecoration(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
@@ -36,14 +35,17 @@ class _ProfilePetState extends State<ProfilePet> {
               const SizedBox(
                 height: 20,
               ),
-              const Align(
-                alignment: Alignment(-.7, 1),
-                child: Text(
-                  "Hulkito",
-                  style: TextStyle(
-                    fontSize: 20,
-                    decoration: TextDecoration.none,
-                    // Add this line
+              Align(
+                alignment: const Alignment(-.7, 1),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: const Text(
+                    "Hulkito",
+                    style: TextStyle(
+                      fontSize: 20,
+                      decoration: TextDecoration.none,
+                      // Add this line
+                    ),
                   ),
                 ),
               ),
@@ -112,7 +114,7 @@ class _ProfilePetState extends State<ProfilePet> {
                               decoration: TextDecoration.none,
                             )),
                         Icon(
-                          Icons.woman_2_rounded,
+                          Icons.pets_rounded,
                           color: Colors.purple,
                           size: 15,
                         )
@@ -177,39 +179,42 @@ class _ProfilePetState extends State<ProfilePet> {
                   ],
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    Separador(),
-                    Info(
+                    const Separador(),
+                    const Info(
                       icon: Icons.color_lens,
                       title: 'Color',
                       subtitle: 'Cafe',
                     ),
-                    Separador(),
-                    Info(
-                      icon: Icons.location_on_rounded,
-                      title: 'Pais',
-                      subtitle: 'Fracia',
+                    const Separador(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .8,
+                      child: const Info(
+                        icon: Icons.location_on_rounded,
+                        title: 'Pais',
+                        subtitle: 'Fracia',
+                      ),
                     ),
-                    Separador(),
-                    Info2(
+                    const Separador(),
+                    const Info(
                       icon: Icons.numbers,
                       title: 'Numero de placa',
                       subtitle: '101-101',
                     ),
-                    Separador(),
-                    Info(
-                      icon: Icons.medical_information,
-                      title: '   Raza',
-                      subtitle: '   Labrador',
+                    const Separador(),
+                    const Info(
+                      icon: Icons.medical_services,
+                      title: 'Raza',
+                      subtitle: 'Labrador',
                     ),
-                    Separador(),
-                    Info2(
+                    const Separador(),
+                    const Info(
                       icon: Icons.medical_information,
                       title: 'Esterelizado',
                       subtitle: '--/--/--',
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -230,13 +235,13 @@ class Separador extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           height: 1,
           width: MediaQuery.of(context).size.width * .8,
           color: const Color.fromARGB(255, 215, 215, 215),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }
@@ -256,35 +261,32 @@ class Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Row(
       children: [
-        Align(
-          alignment: const Alignment(-.9, 0),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * .15,
           child: Icon(
             icon,
             color: Colors.purple,
             size: 30,
           ),
         ),
-        Align(
-          alignment: const Alignment(-.63, -0.5),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.left, // Add this line
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.left, // Add this line
+            ),
+            Text(
+              subtitle,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-              Text(
-                subtitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.left, // Add this line
-              ),
-            ],
-          ),
+              textAlign: TextAlign.left, // Add this line
+            ),
+          ],
         ),
       ],
     );
