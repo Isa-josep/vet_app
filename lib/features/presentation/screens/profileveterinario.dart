@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:vetapp/features/datosdoc.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +47,7 @@ class _VeterinarianProfileState extends State<VeterinarianProfile> {
           animationDuration: const Duration(milliseconds: 300),
           items: const <Widget>[
             Icon(Icons.home, size: 26, color: Colors.white),
-            Icon(Icons.message, size: 26, color: Colors.white),
+            Icon(Icons.view_agenda_outlined, size: 26, color: Colors.white),
           ],
           onTap: (index) {
             setState(() {
@@ -261,176 +264,46 @@ class Llamada extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInUpBig(
+    return FadeIn(
       duration: const Duration(milliseconds: 700),
-      child: Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * .45),
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 1,
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromARGB(69, 196, 4, 255),
-                spreadRadius: 5,
-                blurRadius: 40,
-              )
-            ]),
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Align(
-              alignment: Alignment(-.7, 1),
-              child: Text(
-                "Hulkito",
-                style: TextStyle(
-                  fontSize: 20,
-                  decoration: TextDecoration.none,
-                  // Add this line
-                ),
-              ),
-            ),
-            const Align(
-                alignment: Alignment(-.7, 1),
-                child: Text("Bull dog",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.purple,
-                      decoration: TextDecoration.none,
-                    ))),
-            const SizedBox(
-              height: 20,
-            ),
-            //Row de Datos de la mascota
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * .07,
-                  width: MediaQuery.of(context).size.width * .25,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 196, 4, 255),
-                        width: 1),
-                  ),
-                  child: const Column(
-                    //Edad
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Edad",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                            decoration: TextDecoration.none,
-                          )),
-                      Text("2 años",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            decoration: TextDecoration.none,
-                          ))
-                    ],
-                  ),
-                ),
-                Container(
-                  //Genero
-                  height: MediaQuery.of(context).size.height * .07,
-                  width: MediaQuery.of(context).size.width * .25,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 196, 4, 255),
-                        width: 1),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Genero",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                            decoration: TextDecoration.none,
-                          )),
-                      Icon(
-                        Icons.woman_2_rounded,
-                        color: Colors.purple,
-                        size: 15,
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * .07,
-                  width: MediaQuery.of(context).size.width * .25,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 196, 4, 255),
-                        width: 1),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Peso",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                            decoration: TextDecoration.none,
-                          )),
-                      Text("20 kg",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            decoration: TextDecoration.none,
-                          ))
-                    ],
-                  ),
-                ),
+      child: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * .52,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(104, 255, 255, 255),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 10),
+                  blurStyle: BlurStyle.outer,
+                  color: Color.fromARGB(115, 0, 0, 0),
+                  spreadRadius: 5,
+                  blurRadius: 40,
+                )
               ],
             ),
-            const SizedBox(
-              height: 20,
+            margin: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .0025,
             ),
-            const Align(
-              alignment: Alignment(-.7, 1),
-              child: Text(
-                "Informacion ",
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Color.fromARGB(255, 48, 48, 48),
-                  decoration: TextDecoration.none,
+            width: MediaQuery.of(context).size.width * .9,
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                color: Colors.transparent,
+                child: TableCalendar(
+                  headerStyle: const HeaderStyle(
+                    formatButtonVisible: false,
+                    titleCentered: true,
+                  ),
+                  firstDay: DateTime.utc(2010, 10, 16),
+                  lastDay: DateTime.utc(2030, 3, 14),
+                  focusedDay: DateTime.now(),
                 ),
               ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * .8,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 255, 255),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 215, 215, 215),
-                    spreadRadius: 0,
-                    blurRadius: 0,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: const Column(),
-            ),
-          ],
-        )),
+          )
+        ],
       ),
     );
   }
