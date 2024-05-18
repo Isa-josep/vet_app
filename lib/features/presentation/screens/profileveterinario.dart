@@ -1,12 +1,11 @@
 import 'dart:ui';
-
 import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:vetapp/features/datosdoc.dart';
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
+import 'package:vetapp/features/presentation/screens/agenda.dart';
 import 'package:vetapp/features/presentation/screens/profilepet.dart';
 
 class VeterinarianProfile extends StatefulWidget {
@@ -32,7 +31,7 @@ class _VeterinarianProfileState extends State<VeterinarianProfile> {
   List<Widget> _buildScreens() {
     return [
       Center(child: Profile(index: widget.pagina)),
-      const Center(child: Llamada()),
+      Center(child: Agenda()),
     ];
   }
 
@@ -253,58 +252,6 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class Llamada extends StatelessWidget {
-  const Llamada({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FadeIn(
-      duration: const Duration(milliseconds: 700),
-      child: Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * .52,
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(104, 255, 255, 255),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 10),
-                  blurStyle: BlurStyle.outer,
-                  color: Color.fromARGB(115, 0, 0, 0),
-                  spreadRadius: 5,
-                  blurRadius: 40,
-                )
-              ],
-            ),
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .0025,
-            ),
-            width: MediaQuery.of(context).size.width * .9,
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                color: Colors.transparent,
-                child: TableCalendar(
-                  headerStyle: const HeaderStyle(
-                    formatButtonVisible: false,
-                    titleCentered: true,
-                  ),
-                  firstDay: DateTime.utc(2010, 10, 16),
-                  lastDay: DateTime.utc(2030, 3, 14),
-                  focusedDay: DateTime.now(),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
     );
   }
 }
