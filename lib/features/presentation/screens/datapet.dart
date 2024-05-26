@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ProfilePet extends StatefulWidget {
-  const ProfilePet({super.key});
+class DataPet extends StatefulWidget {
+  const DataPet({super.key});
 
   @override
-  State<ProfilePet> createState() => _ProfilePetState();
+  State<DataPet> createState() => _DataPetState();
 }
 
-class _ProfilePetState extends State<ProfilePet> {
+class _DataPetState extends State<DataPet> {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,12 +1,11 @@
 import 'dart:ui';
 import 'package:animate_do/animate_do.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:vetapp/features/datosdoc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vetapp/features/presentation/screens/agenda.dart';
-import 'package:vetapp/features/presentation/screens/profilepet.dart';
+import 'package:vetapp/features/presentation/screens/datapet.dart';
 
 class VeterinarianProfile extends StatefulWidget {
   final int pagina;
