@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vetapp/features/presentation/screens/homepage.dart';
 import 'package:vetapp/features/presentation/screens/initial_screen.dart';
-import 'package:vetapp/features/presentation/screens/datapet.dart';
 import 'package:vetapp/features/presentation/screens/petpage.dart';
 
 class VeterinarioPage extends StatefulWidget {
