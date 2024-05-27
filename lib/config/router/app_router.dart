@@ -1,9 +1,5 @@
 import 'package:go_router/go_router.dart';
 import 'package:vetapp/features/presentation/screens.dart';
-import 'package:vetapp/features/presentation/screens/datapet.dart';
-import 'package:vetapp/features/presentation/screens/petpage.dart';
-import 'package:vetapp/features/presentation/screens/profileveterinario.dart';
-import 'package:vetapp/features/presentation/screens/veterinario_page.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
@@ -31,5 +27,9 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
         pagina: index,
       );
     },
-  )
+  ),
+  GoRoute(
+    path: '/VacunasScreen',
+    builder: (context, state) => const VacunasScreen(),
+    ),
 ]);
