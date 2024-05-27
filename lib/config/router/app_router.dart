@@ -31,5 +31,5 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
   GoRoute(
     path: '/VacunasScreen',
     builder: (context, state) => const VacunasScreen(),
-    ),
+  ),
 ]);

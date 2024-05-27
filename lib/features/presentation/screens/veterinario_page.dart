@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vetapp/features/presentation/screens/homepage.dart';
 import 'package:vetapp/features/presentation/screens/initial_screen.dart';
+import 'package:vetapp/features/presentation/screens/notication.dart';
 import 'package:vetapp/features/presentation/screens/petpage.dart';
 
 class VeterinarioPage extends StatefulWidget {
@@ -17,8 +18,7 @@ class _VeterinarioPageState extends State<VeterinarioPage> {
 
   final screens = [
     const Center(child: HomePage()),
-    const Center(child: InitialScreen()),
-    const Center(child: HomePage()),
+    const Center(child: NewsPage()),
     const Center(child: PagePet()),
   ];
 
@@ -34,13 +34,12 @@ class _VeterinarioPageState extends State<VeterinarioPage> {
         animationDuration: const Duration(milliseconds: 300),
         items: const <Widget>[
           Icon(Icons.home, size: 26, color: Colors.white),
-          Icon(Icons.message, size: 26, color: Colors.white),
           Icon(Icons.notifications, size: 26, color: Colors.white),
           Icon(Icons.person, size: 26, color: Colors.white),
         ],
         onTap: (index) {
           setState(() {
-            if (index == 3) {
+            if (index == 2) {
               GoRouter.of(context).go('/petprofile');
             }
             _currentIndex = index;
