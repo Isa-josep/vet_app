@@ -1,9 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vetapp/features/presentation/screens/datapet.dart';
-import 'package:vetapp/features/presentation/screens/homepage.dart';
+import 'package:vetapp/features/presentation/screens.dart';
 
 class PagePet extends StatefulWidget {
   static const name = 'pagepet';
@@ -19,8 +17,8 @@ class _PagePetState extends State<PagePet> {
   int _currentIndex = 0;
 
   final screens = [
-    Center(child: DataPet()),
-    Center(child: HomePage()),
+    const Center(child: DataPet()),
+    const Center(child: VacunasScreen()),
   ];
 
   @override
@@ -34,7 +32,7 @@ class _PagePetState extends State<PagePet> {
           animationDuration: const Duration(milliseconds: 300),
           items: const <Widget>[
             Icon(Icons.pets, size: 26, color: Colors.white),
-            Icon(Icons.view_agenda_outlined, size: 26, color: Colors.white),
+            Icon(Icons.vaccines, size: 26, color: Colors.white),
           ],
           onTap: (index) {
             setState(() {

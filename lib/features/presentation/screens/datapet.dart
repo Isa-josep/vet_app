@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DataPet extends StatefulWidget {
   const DataPet({super.key});
@@ -113,11 +113,11 @@ class _DataPetState extends State<DataPet> {
                               color: Colors.grey,
                               decoration: TextDecoration.none,
                             )),
-                        Icon(
-                          Icons.pets_rounded,
+                        FaIcon(
+                          FontAwesomeIcons.mars,
                           color: Colors.purple,
                           size: 15,
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -212,7 +212,7 @@ class _DataPetState extends State<DataPet> {
                     const Info(
                       icon: Icons.medical_information,
                       title: 'Esterelizado',
-                      subtitle: '--/--/--',
+                      subtitle: '12/2/2024',
                     ),
                     const SizedBox(height: 20),
                   ],
